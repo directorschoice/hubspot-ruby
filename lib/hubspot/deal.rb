@@ -54,6 +54,11 @@ module Hubspot
         new(response)
       end
 
+      def find_by_proposal_id(proposal_id)
+        response = Hubspot::Connection.get_json(DEAL_PATH, { proposal_id: proposal_id })
+        new(response)
+      end    
+      
       # Find recent updated deals.
       # {http://developers.hubspot.com/docs/methods/deals/get_deals_modified}
       # @param count [Integer] the amount of deals to return.
